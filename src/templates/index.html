@@ -1,0 +1,117 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<link rel="stylesheet" href="{% static 'vendor/bootstrap/css/styles.css' %}">
+<br>
+<br>
+
+
+<H1 class="ke">¿Quiénes somos?</H1>
+<br>
+<br>
+<div class="card" style="width: 55rem;">
+  <div id="cartas" class="card-body">
+    <h5 class="card-title text-center">FUNDACION PUEBLO</h5>
+    <p class="card-text" style="text-align: justify"> Desde el año 2016 de manera particular venimos trabajando en distintos proyectos sociales, realizando relevamientos en territorio, gestionando soluciones a las problemáticas sociales que hemos detectado. Pero es recién hacia fines del año 2019 que pudimos hacer realidad la Fundación Casa del Pueblo Para Todos La Plata y transformarla en una herramienta de gestión. El año 2020 nos encuentra comprometidos en aportar nuestro granito de arena para cambiar ciertas realidades.</p>
+  </div>
+</div>
+<br>
+<br>
+<div class="container-slider">
+  <div class="slider" id="slider">
+    <div class="slider__section">
+      <img src="{% static 'img/imagen.jpg' %}" alt="" class="slider__img">
+    </div>
+    <div class="slider__section">
+      <img src="{% static 'img/imagen2.jpg' %}" alt="" class="slider__img">
+    </div>
+    <div class="slider__section">
+      <img src="{% static 'img/imagen3.jpg' %}" alt="" class="slider__img">
+    </div>
+    <div class="slider__section">
+      <img src="{% static 'img/imagen4.jpg' %}" alt="" class="slider__img">
+    </div>
+  </div>
+  <div class="slider__btn slider__btn--left" id="btn-left">&#60;</div>
+  <div class="slider__btn slider__btn--right" id="btn-right">&#62;</div>
+</div>
+<br>
+<br>
+<div style="display: flex;">
+  <div class="card" style="width: 25rem;">
+    <div id="cartas" class="card-body">
+      <h5 class="card-title text-center">¿Cúal es nuestra misión?</h5>
+      <p class="card-text" style="text-align: justify"> Generar espacios que permitan a los ciudadanos desarrollar sus capacidades de
+        investigación, reflexión, formulación, ejecución y control de proyectos educativos,
+        culturales, deportivos, ambientales, productivos, económicos, fiscales, laborales y
+        comunitarios para el desarrollo local, la inclusión social y la igualdad de género en
+        vinculación con las Tecnologías de la Información y la Comunicación.</p>
+    </div>
+  </div>
+  <div class="card" style="width: 25rem;">
+    <div id="cartas" class="card-body">
+      <h5 class="card-title text-center">¿Cúal es nuestra visión?</h5>
+      <br>
+      <p class="card-text" style="text-align: justify"> Lograr la eliminación de la pobreza, el analfabetismo, el desempleo y la
+        contaminación ambiental para que exista una verdadera igualdad social, política y
+        económica en las comunidades.</p>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+
+
+
+
+  
+ 
+  <div class="row">
+    <div class="col sm-1"></div>
+    <div class="col-lg-3">
+      
+      <div id="filtros" class="filtros">
+       <h1 style="transform: scale(0.8);">Dirección</h1><br>
+          <form class="filtro" method="get">
+          <p ><i class="bi bi-geo-alt-fill"></i> Av. España 395 Barranqueras Chaco</p>
+         </form>
+          <br>
+      </div>
+      <br>
+    </div>
+    <div class="col-lg-4">
+      
+      <div id="filtros" class="filtros">
+       <h1 style="transform: scale(0.8);">Escribinos a</h1><br>
+        <center>
+          
+          <p><i class="bi bi-envelope-fill"></i> fundacionpueblochaco@gmail.com</p><br></center>
+         <br>
+  
+      </div>
+      <br>
+    </div>
+    <div class="col-lg-3">
+      <div id="filtros" class="filtros">
+    <h1 style="transform: scale(0.8);letter-spacing: -3px">Redes Sociales</h1><div style="height:12px"></div>
+    <form class="filtro" method="get">
+      <a class="nav-link text-uppercase text-expanded" href="https://www.facebook.com/fundacion.pueblo" target="_blank"><i class="bi bi-facebook"></i> Facebook</a>
+      <a class="nav-link text-uppercase text-expanded" href="https://www.instagram.com/fundacion.pueblo/" target="_blank"><i class="bi bi-instagram"></i> Instagram</a>
+      
+    </form><br>
+    
+  </div><br></div> <div class="col sm-1"></div>
+  </div>
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="{% static 'vendor/bootstrap/js/styles.js' %}"></script>
+  
+  
+
+  
+    {% endblock %}

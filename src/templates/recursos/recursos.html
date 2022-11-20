@@ -1,0 +1,53 @@
+
+{% extends 'base/base.html' %}
+{% load static %}
+{% block contenido %}
+
+<div><div style="height:4px"></div><a href="{% url 'inicio' %}"><button type="button" class="boton">Volver</button></a></div><div style="height:4px"></div>
+<h2 class="kee">Recursos para descargar:</h2>
+{% if recursos %}
+{% for r in recursos  %}
+<div  class="container mt-3">
+    <div id="recursos" style="padding: 1rem;" >
+        <h2 class="text-center text-uppercase">{{r.nombre}}</h2>
+        <p class="text-center text-capitalize card">{{r.descripcion}}</p>
+        
+        {% if r.archivo %}
+        <div class="d-grid gap-2">
+            
+            
+            <a href="{{ r.archivo.url }}" download><div class="d-grid gap-2 col-6 mx-auto">
+                <button class="btn btn-success border border-success p-2 mb-2" type="button" style="margin-top: 1rem;"><i class="bi bi-download"></i> Descargar</button>
+            </div></a>
+            {% endif %}
+                
+            
+        
+        {% if user.es_admin or user.is_superuser %}
+            <a href="  {% url 'recursos:eliminar-recurso' r.id %} "><button type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button></a>
+        {% endif %} 
+            
+        
+              
+        </div>
+    </div>
+</div>
+     
+        
+    {% endfor %}
+{% else %}
+<br>
+<h5 class="kee">No se ha subido ningún recurso todavía.</h5>
+<br>
+{% endif %}
+
+
+    {% if user.es_admin or user.is_superuser %}
+        <a href=" {% url 'recursos:subir-recursos' %} "><button class="btn btn-success mt-5"><i class="bi bi-check2"></i> Agregar un recurso</button></a>
+    {% endif %}
+        
+        
+
+    
+{% endblock contenido %}
+    

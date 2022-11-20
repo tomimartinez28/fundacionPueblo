@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+  <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/styles.css' %}">
+  <div><div style="height:4px"></div><a href="{% url 'inicio' %}"><button type="button" class="boton">Volver</button></a></div><div style="height:4px"></div>
+
+  {% include 'includes/error_forms.html' %}
+  <form id="FORMULARIO" method="post" style="margin-top: 2rem;"> {% csrf_token %}
+
+    <h1 class="h3 mb-3 fw-normal">Inicia Sesión</h1>
+    <div >
+      <label>Usuario</label>
+      <input type="text" class="form-control" id="floatingInput" name="username">
+      
+    </div>
+    <br>
+    <div >
+      <label>Contraseña</label>
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+      
+    </div>
+    <br>
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    
+    <button type="submit" class="boton">Entrar</button>
+    <a href="{% url 'usuarios:registro' %}" ><button type="button" class="btn btn-success">Crearte una cuenta</button></a>
+
+
+  </form>
+{% endblock contenido %} 
+    

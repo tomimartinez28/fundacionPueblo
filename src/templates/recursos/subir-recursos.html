@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+
+{% block contenido %}
+<div><div style="height:4px"></div><a href="{% url 'recursos:recursos' %}"><button type="button" class="boton">Volver</button></a></div><div style="height:4px"></div>
+
+<div id="subirrecursos" class="container mt-3">
+    <form action=" {% url 'recursos:subir-recursos' %}" method="post" enctype="multipart/form-data"> {% csrf_token %}
+        <h1 class="text-center">SUBIR RECURSOS</h1>
+        {% include 'includes/error_forms.html' %}
+        {% include 'includes/forms.html' %}
+        <button type="submit" class="btn btn-success">Subir recurso</button>
+
+    </form>
+</div>
+
+
+    
+{% endblock contenido %}
+    

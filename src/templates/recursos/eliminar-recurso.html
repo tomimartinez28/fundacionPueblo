@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+
+
+{% block contenido %}
+<div><div style="height:4px"></div><a href="{% url 'recursos:recursos' %}"><button type="button" class="boton">Volver</button></a></div><div style="height:4px"></div>
+<br>
+<div class="alert alert-danger" role="alert">
+    <form method="post">{% csrf_token %}
+
+        <div class="alert alert-danger" role="alert">
+            <h2>Estas a punto de eliminar el recurso {{recurso.nombre}}</h2>
+          </div>
+    
+        
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+          
+    </form>
+  </div>
+    
+{% endblock contenido %}
+    

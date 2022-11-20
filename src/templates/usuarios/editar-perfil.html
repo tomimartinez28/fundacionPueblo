@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+
+{% load crispy_forms_tags %}
+
+
+
+{% block contenido %}}
+<div><a href="{% url 'usuarios:mi-perfil' %}"><button type="button" class="boton">Volver</button></a></div><div style="height:4px"></div>
+
+<div id="PERFIL" class="container mt-3" style="padding: 2rem;">
+    <h1 class="text-center">EDITAR PERFIL</h1>
+    <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+        {% include 'includes/error_forms.html' %}
+        {{ form|crispy}}
+        <a href=" {% url 'usuarios:cambiar-contraseña' %} " ><button type="button" class="btn btn-light" style="margin-top: 1rem;"><i class="fa-solid fa-key"></i>Cambiar contraseña</button></a>
+        <button type="submit" class="btn btn-success" style="margin-top: 1rem;"><i class="bi bi-save-fill"></i> Guardar cambios</button>
+    </form> 
+</div>
+    
+{% endblock contenido %}
+    
+
+    
+
+    

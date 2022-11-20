@@ -1,0 +1,112 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div><div style="height:4px"></div><a href="{% url 'inicio' %}"><button type="button" class="boton">Volver</button></a></div><div style="height:4px"></div>
+<h2 class="kee">Agenda de Eventos:</h2>
+	
+
+	<div class="container-fluid h-100"> 
+    		<div class="row w-100 align-items-center">
+    			<div class="col text-center">
+    				<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+	<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#miModal">Filtrar <i class="bi bi-filter " class="row w-100 "></i></button>
+    			</div>	
+    		</div>
+	
+    <div class="modal fade" id="miModal" tabindex="-1" aria-hidden="true" aria-labelledby="modalTitle">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalTitle">FILTRAR POR:</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+                    <form class="filtro" method="get">
+						{{filter.form.as_p}}
+						
+						<button type="submit" class="btn btn-success">Filtrar</button>
+						<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+					</form>
+				</div>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	{% for e in eventos  %}
+	<a href="  {% url 'eventos:detalle' e.id %} " class="urls" >
+	<div class="EVENTO">
+		<div class="EVENTO-2">
+			
+			<div class="col-10">
+				<h3 class="TITULO"><strong>{{e.nombre}}</strong></h3>
+				<ul class="list-inline">
+				    <li class="TEXTOS"><i class="fa fa-calendar-o" aria-hidden="true"></i> {{e.fecha}}</li>
+					<br>
+					<li class="TEXTOS"><i class="fa fa-clock-o" aria-hidden="true"></i> {{e.hora}}</li>
+					<br>
+					<li class="TEXTOS"><i class="fa-solid fa-location-pin"></i> {{e.lugar}}</li>
+				</ul>
+			</div>
+		</a>	
+		</div>
+		
+	</div>
+
+	{% endfor %}	
+
+
+{% if is_paginated  %}
+	<div class="mt-2">
+		<ul class="pagination">
+			{% if page_obj.has_previous %}
+			<li class="pagina-item">
+				<a href="?page={{ page_obj.previous_page_number }}" class="page-link">Anterior</a>
+			</li>
+			{% else %}
+			<li class="pagina-item disabled">
+				<a href="#" class="page-link">Anterior</a>
+			</li>
+			{% endif %}
+			{% for i in paginator.page_range %}
+				<li class="pagina-item {% if page_obj.number == i %} active {% endif %}">
+					<a href="?page={{ i}}" class="page-link">{{ i}}</a>
+				</li>
+			{% endfor %}	
+			{% if page_obj.has_next %}
+				<li class="pagina-item">
+					<a href="?page={{ page_obj.next_page_number}}" class="page-link">Siguiente</a>
+				</li>
+			{% else %}
+			<li class="pagina-item disabled">
+				<a href="#" class="page-link">Siguiente</a>
+			</li>
+			{% endif %}
+		</ul>
+	</div>
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+	<!--SE MUESTRA SOLO SI SOS ADMIN O SUPERUSER-->	
+	{% if user.es_admin or user.is_superuser %}
+
+		<a href=" {% url 'eventos:crear-eventos' %}   "><button type="button" class="btn btn-success">Añadir evento nuevo</button></a>
+		
+	{% endif %}
+	
+
+	{% endblock contenido %}
+

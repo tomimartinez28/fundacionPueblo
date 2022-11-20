@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'vendor/bootstrap/css/styles.css' %}">
+{% block contenido %}
+<div><div style="height:4px"></div><a href="{% url 'eventos:lista-eventos' %}"><button type="button" class="boton">Volver</button></a></div><div style="height:4px"></div>
+<br>
+
+<div id="modificareventos" class="container mt-3">
+    <form  method="post" enctype="multipart/form-data">{% csrf_token %}
+        <h2 class="text-center text-uppercase">MODIFICAR EVENTO</h2>
+        {% include 'includes/error_forms.html' %}
+        {% include 'includes/forms.html' %}
+        <button type="submit" class="btn btn-success">Modificar Evento!</button>
+    </form>
+</div>
+   
+
+{% endblock contenido %}
+    
