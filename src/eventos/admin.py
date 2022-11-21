@@ -1,6 +1,4 @@
 from django.contrib import admin
-
-from fundacion_pueblo.views import eventos
 from .models import Evento, Categoria, Modalidad
 # Register your models here.
 

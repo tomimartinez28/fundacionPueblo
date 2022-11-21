@@ -12,15 +12,23 @@ html {
     scroll-behavior: smooth;
 }
 
+:root {
+    --main-color: #6797ff;
+    --white-color: #bfd1f2;
+
+
+
+}
+
 
 /* ESTILOS DEL INICIO */
-#inicio {
+.inicio {
     background: linear-gradient(
-        to right,
-        #b5b2cd 0%,
-        #b5b2cd 35%,
-        #04015f 35%,
-        #04015f 100%
+        to right top,
+        #bfd1f2 0%,
+        #bfd1f2 35%,
+        #6797ff 35%,
+        #6797ff 100%
     );
     background-size: cover;
     background-position: center center;
@@ -28,7 +36,7 @@ html {
 }
 
 
-#inicio .presentacion {
+.inicio .presentacion {
     max-width: 1100px;
     height: 100vh;
     margin: auto;
@@ -40,14 +48,14 @@ html {
 
 }
 
-#inicio .presentacion .bienvenida{
+.inicio .presentacion .bienvenida{
     font-size: 16px;
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 5px;
 }
 
-#inicio .presentacion h2 {
+.inicio .presentacion h2 {
     font-size: 55px;
     margin-bottom: 25px;
     text-align: center;
@@ -91,10 +99,45 @@ html {
     color: palevioletred;
 }
 
-#inicio .contenido header .contenido-header .seleccionado {
-    color: palevioletred;
+.inicio .contenido header .contenido-header .seleccionado {
+    color: #d87093;
 }
 
+
+/* ESTILOS DE FORMULARIO */
+
+.form {
+    width: 400px;
+    background-color: #04015f;
+    padding: 30px;
+    margin: auto;
+    margin-top: 10%;
+    border-radius: 20px;
+    color: white;
+    border: solid 2px;
+}
+.form h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    background-color: #7370af;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: solid 1px var(--white-color);
+    font-size: 16px;
+}
+
+
+.form button {
+    padding: 10px;
+    background-color: var(--white-color);
+    border: solid 1px #04015f;
+    border-radius: 5px;
+}
 
 
 

@@ -12,7 +12,6 @@ urlpatterns = [
     path('', views.inicio, name="inicio"),
     path('login/', auth_views.LoginView.as_view(template_name = "login.html") , name= "login" ), #ACA HAGO USO DE LA VISTA BASADA EN UNA CLASE QUE YA TRAE DJANGO QUE SE LLAMA LoginView
     path('logout/',auth_views.logout_then_login, name= 'logout'),
-    path('eventos/', views.eventos, name ="eventos"),
 
     # INCLUDES (incluyo las urls de app particulares)
     path("usuarios/", include("usuarios.urls")),

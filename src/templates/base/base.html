@@ -19,10 +19,10 @@
         <div class="contenido-header">
             <nav id="nav" class="">
                 <ul id="links">
-                    <li><a href="#inicio" class="seleccionado" onclick="seleccionar(this)">INICIO</a></li>
-                    <li><a href="#aboutus" onclick="seleccionar(this)">QUIENES SOMOS</a></li>
-                    <li><a href="#eventos" onclick="seleccionar(this)">EVENTOS</a></li>
-                    <li><a href="#login" onclick="seleccionar(this)">INICIAR SESION</a></li>
+                    <li><a href="{% url 'inicio' %}" class="seleccionado" onclick="seleccionar(this)">INICIO</a></li>
+                    <li><a href="#" onclick="seleccionar(this)">QUIENES SOMOS</a></li>
+                    <li><a href="{% url 'eventos:lista-eventos' %}" onclic  k="seleccionar(this)">EVENTOS</a></li>
+                    <li><a href="{% url 'login' %}" onclick="seleccionar(this)">INICIAR SESION</a></li>
                 </ul>
             </nav>
             <!-- Inconos del menu responsive-->
