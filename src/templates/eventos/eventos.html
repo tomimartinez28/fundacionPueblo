@@ -4,25 +4,16 @@
 {% block contenido %}
 
 {% for e in eventos %}
+<a href=" {% url 'eventos:detalle' e.id %} ">
 <div class="card">
-    <img src=" {% static 'img/logo.jpeg' %} " alt="logo">
+    <div class="top"></div>
     <div class="event-info">
-        
         <p class="title">{{e.nombre}}</p>
         <div class="aditional-info">
-
-            <p class="info">
-                <i class="fa-solid fa-map-pin"></i> {{e.lugar}}
-            </p>
-            
-            <p class="info">
-                <i class="fa-solid fa-calendar-days"></i> {{e.fecha}}
-            </p>
-
-
         </div>
     </div>
 </div>
+</a>
 {% endfor %}
     
     
