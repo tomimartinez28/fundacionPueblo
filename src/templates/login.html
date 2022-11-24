@@ -1,6 +1,6 @@
 {% extends 'base/base.html' %} {% block contenido %}
-<section class="inicio">
-  <div class="presentacion">
+
+  
     <form class="form" method="post">
       {% csrf_token %}
       <h3>Inicia Sesión</h1>
@@ -9,11 +9,7 @@
         <label> <input type="checkbox" value="remember-me" />Recordarme</label>
       <button class="button" type="submit">Entrar</button>
 
-      <a href="{% url 'usuarios:registro' %}">
-        <button type="button" class="btn btn-success">
-          Crearte una cuenta
-        </button></a>
+      <a href="{% url 'usuarios:registro' %}"> Crearte una cuenta</a>
     </form>
-  </div>
-</section>
+
 {% endblock contenido %}
