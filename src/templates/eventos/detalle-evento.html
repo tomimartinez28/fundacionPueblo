@@ -1,6 +1,22 @@
 {% extends 'base/base.html' %}
+{% load static %}
 
 {% block contenido %}
+<div class="evento">
+    <div class="evento-img">
+        <img src="{% static 'img/logo.jpeg' %}" alt="">
+    </div>
+    <div class="evento-info">
+        <div class="evento-date">
+            <span>evento.fecha</span>
+            <span></span>
+        </div>
+        <h1>NOMBRE EVENTO</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, consequuntur laboriosam. Id sed sunt, quae labore cupiditate dolorem hic necessitatibus non facilis, ratione ducimus dicta nobis. Quidem nostrum magnam ea!</p>
+        <button>asisti</button>
+    </div>
+</div>
+¸=
     
 {% endblock contenido %}
     
