@@ -1,15 +1,18 @@
 {% extends 'base/base.html' %} {% block contenido %}
 
-  
-    <form class="form" method="post">
-      {% csrf_token %}
-      <h3>Inicia Sesión</h1>
-        <input class= "form-control" type="text" name="username" placeholder="Nombre de Usuario" /> 
-        <input class= "form-control" type="password" placeholder="Contraña" name="password" />
-        <label> <input type="checkbox" value="remember-me" />Recordarme</label>
-      <button class="button" type="submit">Entrar</button>
+<div class="container border shadow p-3 mb-5 bg-body rounded w-50 p3 mt-5 p-3">
+  {% include 'includes/error_forms.html' %}
+<form class= "w-50 p-3" method="post">
+  {% csrf_token %}
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingInput" placeholder="Nombre de usuario" name="username">
+  </div>
+  <div class="form-floating">
+    <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-primary btn-lg">Ingresar</button>
 
-      <a href="{% url 'usuarios:registro' %}"> Crearte una cuenta</a>
-    </form>
+</form>
 
+</div>
 {% endblock contenido %}

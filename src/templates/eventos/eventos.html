@@ -4,16 +4,15 @@
 {% block contenido %}
 
 {% for e in eventos %}
-<a href=" {% url 'eventos:detalle' e.id %} ">
-<div class="card">
-    <div class="top"></div>
-    <div class="event-info">
-        <p class="title">{{e.nombre}}</p>
-        <div class="aditional-info">
-        </div>
+<div class="card w-50 p-3 shadow-lg p-3 mb-5 bg-body rounded mx-auto mt-5">
+    <div class="card-header">
+      {{e.fecha}}
     </div>
-</div>
-</a>
+    <div class="card-body">
+      <h5 class="card-title">{{e.nombre}}</h5>
+      <a href="{% url 'eventos:detalle' e.id %}" class="btn btn-primary">Ver mas</a>
+    </div>
+  </div>
 {% endfor %}
     
     

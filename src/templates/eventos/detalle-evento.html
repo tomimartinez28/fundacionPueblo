@@ -2,21 +2,22 @@
 {% load static %}
 
 {% block contenido %}
-<div class="evento">
-    <div class="evento-img">
-        <img src="{% static 'img/logo.jpeg' %}" alt="">
+<div class="card w-50 p-3 shadow-lg p-3 mb-5 bg-body rounded mx-auto mt-5">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{evento.nombre}}</h5>
+      <p class="card-text">{{evento.descripcion}}</p>
     </div>
-    <div class="evento-info">
-        <div class="evento-date">
-            <span>evento.fecha</span>
-            <span></span>
-        </div>
-        <h1>NOMBRE EVENTO</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, consequuntur laboriosam. Id sed sunt, quae labore cupiditate dolorem hic necessitatibus non facilis, ratione ducimus dicta nobis. Quidem nostrum magnam ea!</p>
-        <button>asisti</button>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{evento.fecha}}</li>
+      <li class="list-group-item">{{evento.lugar}}</li>
+      <li class="list-group-item">{{evento.categoria}}</li>
+      <li class="list-group-item">{{evento.hora}}</li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link">Asistiré!</a>
     </div>
-</div>
-¸=
+  </div>
     
 {% endblock contenido %}
     
