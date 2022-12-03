@@ -10,5 +10,6 @@ urlpatterns = [
     path("eliminar-eventos/<int:pk>/", views.EliminarEvento.as_view(), name= "eliminar-eventos"),
     path("detalle/<int:pk>/", views.DetalleEvento.as_view(), name = "detalle"),
     path("asistir/<int:pk>", views.Asistir, name = "asistir"),
+   
     
 ]    

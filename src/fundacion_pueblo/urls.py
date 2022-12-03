@@ -16,7 +16,8 @@ urlpatterns = [
     # INCLUDES (incluyo las urls de app particulares)
     path("usuarios/", include("usuarios.urls")),
     path("eventos/", include("eventos.urls")),
-    path("recursos/", include("recursos.urls"))
+    path("recursos/", include("recursos.urls")),
+    path('administrador/', include('administrador.urls')),
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

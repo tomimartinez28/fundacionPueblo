@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+
+{% block contenido %}
+<div class="container border shadow p-3 mb-5 bg-body rounded w-50 p3 mt-5 p-3">
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+    {% include 'includes/error_forms.html' %}
+    {% include 'includes/forms.html' %}
+    <button type="submit" class="btn btn-dark">Modificar</button>
+    </form>
+</div>
+    
+{% endblock contenido %}
+    

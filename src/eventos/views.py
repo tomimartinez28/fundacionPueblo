@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from core.mixins import AdminRequired
 from usuarios.models import Usuario
 from .forms import CrearEventoForm  
-from eventos.models import Evento
+from eventos.models import Evento, Categoria
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .filters import Filtros
 from django_filters.views import FilterView
@@ -75,7 +75,7 @@ class EliminarEvento(AdminRequired,LoginRequiredMixin, DeleteView):
     template_name = "eventos/eliminar-eventos.html"
     model = Evento
     def get_success_url(self, **kwargs):
-        return reverse('eventos:lista-eventos')
+        return reverse('administrador:administrador')
 
 
 
@@ -94,6 +94,4 @@ def Asistir(request, pk):
     
     return HttpResponseRedirect(reverse('eventos:detalle', args=[str(pk)]))
 
-
-# FILTRAR EVENTOS
 

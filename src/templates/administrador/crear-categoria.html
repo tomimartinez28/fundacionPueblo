@@ -1,0 +1,12 @@
+{% extends 'base/base.html' %}
+
+{% block contenido %}
+<form method="post">
+    {% csrf_token %}
+    {% include 'includes/error_forms.html' %}
+    {% include 'includes/forms.html' %}
+    <button type="submit" class="btn btn-dark">Crear categoria</button>
+</form>
+    
+{% endblock contenido %}
+    
