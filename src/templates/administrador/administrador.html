@@ -119,15 +119,14 @@
               <tr>
                 <td>{{m.nombre}}</td>
                 <td>
-                  <a href="{% url 'eventos:modificar-eventos' m.id %}" class="me-5"><i class="fa-solid fa-pen-to-square"></i></a>
-                  <a href="{% url 'eventos:eliminar-eventos' m.id %}"><i class="fa-solid fa-trash"></i></a>
+                  <a href="{% url 'administrador:eliminar-modalidad' m.id %}"><i class="fa-solid fa-trash"></i></a>
                 </td>
               </tr>
             {% endfor %}
             
           </tbody>
         </table>
-        <button type="button" class="btn btn-success"><i class="fa-solid fa-plus"></i>AÑADIR MODALIDAD</button>
+        <a href="{% url 'administrador:crear-modalidad' %}"><button type="button" class="btn btn-success"><i class="fa-solid fa-plus"></i>AÑADIR MODALIDAD</button></a>
 
 
         </div>

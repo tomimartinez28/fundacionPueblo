@@ -3,21 +3,44 @@
 
 {% block contenido %}
 <div class="card w-50 p-3 shadow-lg p-3 mb-5 bg-body rounded mx-auto mt-5">
-    <img src="..." class="card-img-top" alt="...">
+  
+  {% if evento.imagen %}
+  <img src="{{evento.imagen.url}}" class="rounded mx-auto d-block img-thumbnail" alt="Imagen del Evento">
+  {% endif %}
+    
+    
     <div class="card-body">
       <h5 class="card-title">{{evento.nombre}}</h5>
       <p class="card-text">{{evento.descripcion}}</p>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">{{evento.fecha}}</li>
-      <li class="list-group-item">{{evento.lugar}}</li>
-      <li class="list-group-item">{{evento.categoria}}</li>
-      <li class="list-group-item">{{evento.hora}}</li>
+      <li class="list-group-item"><i class="fa-solid fa-calendar-days me-3"></i>{{evento.fecha}}</li>
+      <li class="list-group-item"><i class="fa-solid fa-location-dot me-3"></i>{{evento.lugar}}</li>
+      <li class="list-group-item"><i class="fa-sharp fa-solid fa-tag me-3"></i>{{evento.categoria}}</li>
+      <li class="list-group-item"><i class="fa-solid fa-clock me-3"></i>{{evento.hora}}</li>
+      <li class="list-group-item"><i class="fa-solid fa-people-group me-3"></i>{{cant_participantes}} 
+      {% if cant_participantes != 1 %}
+      personas asistirán a este evento</li>
+      {% else %}
+      persona asistirá a este evento</li>
+      {% endif %}
     </ul>
-    <div class="card-body">
-      <a href="#" class="card-link">Asistiré!</a>
-    </div>
-  </div>
+   
+
+    {% if user.is_authenticated %}
+    <form action="{% url 'eventos:asistir' evento.pk %}" method="post" class="mt-3"> {% csrf_token %}
+    {% if asiste %}
+    <button class="btn btn-dark" type="submit" name="evento_id" , value="{{ evento.id }}" ><i class="bi bi-exclamation-triangle-fill"></i> No podré asistir</button>
+
+    {% else %}
+     
+          <button type="submit" , name="evento_id" , value="{{ evento.id }}" , class="btn btn-dark" ><i class="bi bi-check2"></i> Asistir a
+              este evento</button>
+
+              {% endif %}
+              {% else %}
+          <a href=" {% url 'login' %} "><button class="btn btn-dark">Asistir a evento</button></a>
+          {% endif %} 
     
 {% endblock contenido %}
     

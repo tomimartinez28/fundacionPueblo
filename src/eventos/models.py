@@ -42,3 +42,7 @@ class Evento(models.Model):
         return self.nombre
 
 
+class Posteo(models.Model):
+    fecha = models.DateField(null=True)
+    publicacion = models.TextField(null=True)
+    

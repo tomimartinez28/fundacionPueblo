@@ -19,6 +19,7 @@ class ListaEventos(FilterView):
     context_object_name= "eventos"
     filterset_class = Filtros
     paginate_by = 5   #EL PAGINATE_BY ES PARA RENDERIZAR LA CANTIDAD DE EVENTOS :)
+    
     def get_queryset(self):
         return Evento.objects.all().order_by("fecha")
         
@@ -74,6 +75,7 @@ class ModificarEventos(AdminRequired, LoginRequiredMixin, UpdateView):
 class EliminarEvento(AdminRequired,LoginRequiredMixin, DeleteView):
     template_name = "eventos/eliminar-eventos.html"
     model = Evento
+
     def get_success_url(self, **kwargs):
         return reverse('administrador:administrador')
 

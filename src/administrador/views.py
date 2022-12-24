@@ -1,7 +1,7 @@
 from django.views.generic import ListView, DeleteView, CreateView
 from eventos.models import Evento, Categoria, Modalidad
 from django.urls import reverse
-from .forms import CrearCategoriaForm
+from .forms import CrearCategoriaForm, CrearModalidadForm
 from . import forms
 # Create your views here.
 
@@ -33,6 +33,13 @@ class CrearCategoria(CreateView):
     def get_success_url(self, **kwargs):
         return reverse('administrador:administrador')
 
+class CrearModalidad(CreateView):
+    template_name: str = "administrador/crear-modalidad.html"
+    model = Modalidad
+    form_class = CrearModalidadForm 
+    def get_success_url(self, **kwargs):
+        return reverse('administrador:administrador')
+
 # ELIMINAR CATEGORIAS
 
 class EliminarCategoria(DeleteView):
@@ -41,4 +48,9 @@ class EliminarCategoria(DeleteView):
     def get_success_url(self, **kwargs):
         return reverse('administrador:administrador')
 
+class EliminarModalidad(DeleteView):
+    template_name = "administrador/eliminar-modalidad.html"
+    model = Modalidad
+    def get_success_url(self, **kwargs):
+        return reverse('administrador:administrador')
 
